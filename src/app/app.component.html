@@ -1,11 +1,11 @@
 <div>
   <h4>Add new task</h4>
-  <input type="text" placeholder="Describe task">
-  <input type="checkbox">
+  <input type="text" placeholder="Describe task" [(ngModel)]="toDo.task">
+  <input type="checkbox" [checked]="today" (change)="today = !today">
   <label> Today</label>
-  <input type="checkbox">
+  <input type="checkbox" [checked]="tomorrow" (change)="tomorrow = !tomorrow">
   <label>Tomorrow</label>
-  <button>Save</button>
+  <button (click)="addToDo(toDo)">Save</button>
 </div>
 
 <div>
