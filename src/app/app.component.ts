@@ -38,4 +38,27 @@ export class AppComponent {
     this.tomorrow = false;
   }
 
+  setToday(){
+    for(let i=0; i<this.tomorrowToDo.length; i++){
+      if(this.tomorrowToDo[i].selected){
+        this.todayToDo.push(this.tomorrowToDo[i]);
+      }
+    }
+    this.tomorrowToDo = this.tomorrowToDo.filter(t => !t.selected);
+  }
+
+  setTomorrow(){
+    for(let i=0; i<this.todayToDo.length; i++){
+      if(this.todayToDo[i].selected){
+        this.tomorrowToDo.push(this.todayToDo[i]);
+      }
+    }
+    this.todayToDo = this.todayToDo.filter(t => !t.selected);
+  }
+
+  delete(){
+    this.todayToDo = this.todayToDo.filter(t => !t.selected);
+    this.tomorrowToDo = this.tomorrowToDo.filter(t => !t.selected);
+  }
+
 }

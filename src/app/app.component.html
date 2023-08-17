@@ -11,22 +11,28 @@
 <div>
   <h4>Tasks for Today</h4>
   <table>
-    
+    <tr *ngFor="let x of todayToDo">
+      <td><input type="checkbox" [(ngModel)]="x.selected"></td>
+      <td>{{x.task}}</td>
+    </tr>
   </table>
 </div>
 
 <div>
-  <button></button>
+  <button (click)="setTomorrow()"></button>
   <label>Tomorrow</label>
-  <button></button>
+  <button (click)="setToday()"></button>
   <label>Today</label>
-  <button></button>
+  <button (click)="delete()"></button>
   <label>Delete</label>
 </div>
 
 <div>
   <h4>Tasks for Tomorrow</h4>
   <table>
-    
+    <tr *ngFor="let x of tomorrowToDo">
+      <td><input type="checkbox" [(ngModel)]="x.selected"></td>
+      <td>{{x.task}}</td>
+    </tr>
   </table>
 </div>
