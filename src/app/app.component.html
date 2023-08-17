@@ -1,4 +1,4 @@
-<div>
+<div class="form">
   <h4>Add new task</h4>
   <input type="text" placeholder="Describe task" [(ngModel)]="toDo.task">
   <input type="checkbox" [checked]="today" (change)="today = !today">
@@ -8,31 +8,33 @@
   <button (click)="addToDo(toDo)">Save</button>
 </div>
 
-<div>
-  <h4>Tasks for Today</h4>
-  <table>
-    <tr *ngFor="let x of todayToDo">
-      <td><input type="checkbox" [(ngModel)]="x.selected"></td>
-      <td>{{x.task}}</td>
-    </tr>
-  </table>
-</div>
+<div class="bottom">
+  <div class="today">
+    <h4>Tasks for Today</h4>
+    <table>
+      <tr *ngFor="let x of todayToDo">
+        <td><input type="checkbox" [(ngModel)]="x.selected"></td>
+        <td>{{x.task}}</td>
+      </tr>
+    </table>
+  </div>
 
-<div>
-  <button (click)="setTomorrow()"></button>
-  <label>Tomorrow</label>
-  <button (click)="setToday()"></button>
-  <label>Today</label>
-  <button (click)="delete()"></button>
-  <label>Delete</label>
-</div>
+  <div class="center">
+    <button (click)="setTomorrow()"><i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i></button>
+    <label>Tomorrow</label>
+    <button (click)="setToday()"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></button>
+    <label>Today</label>
+    <button (click)="delete()" id="delete"><i class="fa-solid fa-trash" style="color: rgb(169, 169, 169);"></i></button>
+    <label>Delete</label>
+  </div>
 
-<div>
-  <h4>Tasks for Tomorrow</h4>
-  <table>
-    <tr *ngFor="let x of tomorrowToDo">
-      <td><input type="checkbox" [(ngModel)]="x.selected"></td>
-      <td>{{x.task}}</td>
-    </tr>
-  </table>
+  <div class="tomorrow">
+    <h4>Tasks for Tomorrow</h4>
+    <table>
+      <tr *ngFor="let x of tomorrowToDo">
+        <td><input type="checkbox" [(ngModel)]="x.selected"></td>
+        <td>{{x.task}}</td>
+      </tr>
+    </table>
+  </div>
 </div>
